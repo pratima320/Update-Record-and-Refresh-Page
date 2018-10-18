@@ -1,0 +1,23 @@
+public with sharing class PressCallorCount {
+
+	@AuraEnabled
+	public static Inventory_Exception__c getInventory(Id inventoryId){
+		return [SELECT Name, Id, MAke_a_Call__c, Inventory_Count_Requested__c FROM Inventory_Exception__c
+		WHERE Id = :inventoryId ];
+	}
+
+	@AuraEnabled
+	public static Inventory_Exception__c updateInventoryCall(Inventory_Exception__c inv){
+
+		inv.MAke_a_Call__c = True;
+		update inv;
+		return inv;
+	}
+    
+    @AuraEnabled
+    public static Inventory_Exception__c updateInventoryCount(Inventory_Exception__c inv){
+        inv.Inventory_Count_Requested__c = True;
+        update inv;
+        return inv;
+    }
+}
