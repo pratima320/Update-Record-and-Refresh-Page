@@ -1,0 +1,12 @@
+<aura:component controller="PressCallorCount" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId"
+   access="global" >
+   <aura:attribute name="inventory" type="Inventory_Exception__c"/>
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+   <div class="slds-page-header" role="banner">
+     <h1 class="slds-page-header__title">Are you sure you want to request a call with Regional and HQ management?</h1>
+   </div>
+   <lightning:button label="Yes" onclick="{!c.requestCall}" class="slds-m-top--medium" variant="brand" />
+   <lightning:button label="No" onclick="{!c.cancelCall}" class="slds-m-top--medium"/>
+
+</aura:component>
